@@ -29,7 +29,14 @@ describe('template spec', () => {
     loginPop.login(user.username, user.password)
   });
 
-  it('Select a product for every category', () => {
+  it('Verifies the list product is displayed correctly', () => {
+    var categoryProduct = ["Phones","Monitors","Laptops"]
+    categoryProduct.forEach(function(category){
+      categoryContainer.verifiesCategory(category)
+    });
+  })
+
+  it('Select a product for every product', () => {
     var produtToAdd = new Map([
       ['Laptops', 'Sony vaio i5'],
       ['Phones', 'Samsung galaxy s6'],
@@ -43,5 +50,6 @@ describe('template spec', () => {
       productDetaill.clickProductAddAlert()
       navigate.loginPage()
     })
+    
   })
 })
