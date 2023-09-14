@@ -1,0 +1,8 @@
+node_modules/
+package-lock.json
+.idea
+cypress/screenshots/
+cypress/videos/
+mochawesome-report/
+reports
+cypress/cucumber-json/
