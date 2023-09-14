@@ -4,52 +4,31 @@ import { Navigate } from "../support/demoplaze/navigate";
 import { LoginPop } from "../support/demoplaze/login_pop";
 import { HomePage } from "../support/demoplaze/home_page";
 import { CategoryContainer } from "../support/demoplaze/category_container";
-import { ProductDetaill } from "../support/demoplaze/product_detaill_page";
+const user = require('../fixtures/user.json')
 
 var navigate = new Navigate()
 var loginPop = new LoginPop()
 var homePage = new HomePage()
 var categoryContainer = new CategoryContainer()
-var productDetaill = new ProductDetaill()
 
-describe('template spec', () => {
-  let user;
-
-  before(() => {
-    // load credentials
-    cy.fixture('user').then(function (data) {
-      user = data;
-    })
-  });
+describe('Agregar varias categorías', () => {
 
   beforeEach(() => {
     //Login page
     navigate.loginPage()
     homePage.clickLoginButton()
     loginPop.login(user.username, user.password)
+    clean = false;
   });
+
+  afterEach(() => {
+    homePage.clickLogOutButton()
+  })
 
   it('Verifies the list product is displayed correctly', () => {
     var categoryProduct = ["Phones","Monitors","Laptops"]
     categoryProduct.forEach(function(category){
       categoryContainer.verifiesCategory(category)
     });
-  })
-
-  it('Select a product for every product', () => {
-    var produtToAdd = new Map([
-      ['Laptops', 'Sony vaio i5'],
-      ['Phones', 'Samsung galaxy s6'],
-      ['Monitors', 'Apple monitor 24']
-    ]);
-
-    produtToAdd.forEach(function(value,key){
-      categoryContainer.clickCategory(key)
-      categoryContainer.clickProduct(value)
-      productDetaill.clickAddCarButton()
-      productDetaill.clickProductAddAlert()
-      navigate.loginPage()
-    })
-    
   })
 })

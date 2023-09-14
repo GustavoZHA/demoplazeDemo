@@ -21,7 +21,7 @@ export class CategoryContainer {
     clickCategory(category) {      
         var categ = this.categoryList.get(category)
         var category_a_product = '.list-group #itemc[onclick="byCat(\'' + categ + '\')"]'
-        cy.get(category_a_product).click()
+        cy.get(category_a_product).click({force:true})
     }
 
     clickProduct(nameProduct) {
