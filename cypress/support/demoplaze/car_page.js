@@ -18,16 +18,19 @@ export class CarPage {
 
     verifyProduct(productTitle) {
         var recordDetails = [];
-        cy.get(this.record_table).each(($el, index, $list) => {
-            recordDetails[index] = getTitleProduct($el.text());
+        cy.log(productTitle.length)
+        cy.get(this.record_table + ' td:nth-child(2)').each(($el, index, $list) => {
+            recordDetails[index] = ($el.text());
+            cy.log(recordDetails[index])
         })
-        // .then(() => {  
-        //     for (i = 0; i < productTitle.length; i++) {
-        //         // if (recordDetails.indexOf(productTitle[i]) >= 0) {
-        //         //     recordDetails = removeItem(recordDetails, productTitle[i])
-        //         // }
-        //     }
-        //    // expect(recordDetails.length() == 0).to.be.true
-        // })
+        .then(() => {  
+            var i;
+            for (i = 0; i < productTitle.length; i++) {
+           
+            recordDetails = removeItem(recordDetails, productTitle[i])
+                
+            }
+            expect(recordDetails.length== 0).to.be.true
+        })
     }
 }

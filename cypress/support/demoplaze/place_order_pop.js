@@ -19,7 +19,7 @@ export class PlaceOrderPop {
     }
 
     clickPurchaseButton() {
-        cy.get(this.purchase_button).should('be.visible').click()
+        cy.get(this.purchase_button).should('be.visible').click({force:true})
     }
 
     clickOkButton() {
