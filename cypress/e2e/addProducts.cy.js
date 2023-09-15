@@ -57,7 +57,7 @@ describe('Carrito de Compras', () => {
             ['Laptops', 'Sony vaio i5'],
             ['Phones', 'Samsung galaxy s6'],
             ['Monitors', 'Apple monitor 24'],
-            ['Phones 01', 'Samsung galaxy s6'],
+            ['Phones 01', 'Samsung galaxy s6']
         ]);
 
         produtToAdd.forEach(function (value, key) {
