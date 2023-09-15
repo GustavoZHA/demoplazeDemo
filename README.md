@@ -1,0 +1,1 @@
+Update cypress/fixtures/user.json with valid credencial
